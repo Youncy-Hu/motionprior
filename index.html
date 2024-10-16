@@ -37,9 +37,6 @@
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
-  <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png">
   <link rel="manifest" href="/site.webmanifest">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -84,28 +81,9 @@
             <div class="column has-text-centered">
               <div class="publication-links">
 
-                <!-- <span class="link-block">
-                  <a href="https://arxiv.org/abs/2310.01107" target="_blank"class="external-link ">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>ArXiv</span>
-                  </a>
-                </span> -->
-
-                <!-- Supplementary PDF link -->
-                <!-- <span class="link-block">
-                  <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link ">
-                    <span class="icon">
-                      <i class="fas fa-file-pdf"></i>
-                    </span>
-                    <span>Supplementary</span>
-                  </a>
-                </span> -->
-
                 <!-- Github link -->
                 <span class="link-block">
-                  <a href="https://github.com/Youncy-Hu/motionprior/" target="_blank" class="external-link ">
+                  <a href="https://youncy-hu.github.io/motionprior/" target="_blank" class="external-link ">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
@@ -149,97 +127,82 @@
 </section>
 <!-- End paper abstract -->
 
-<!-- Paper overview -->
-<!--<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body has-text-justified">
-      <br>
-      <br>
-      <h2 class="title is-3">Method</h2>
-      <br>
-      <img class="center-img center" src="static/images/overview.png" width="100%">
-      <br>
-      <h3 class="subtitle" style="font-size: 18px;">
-      Given a series of input video frames, we automatically obtain <strong>video groundings</strong> via GLIP. 
-      Subsequently, the groundings and the source prompt are manually refined to form target groundings and target prompot, 
-      commonly following our <strong>&#916;&#964;</strong> (a list of semantic edits).
-      On the other branch, the input frames undergo individual DDIM inversion and null optimizations, followed by our proposed <strong>Optical flow smoothing</strong> to form latent features.
-      The latents are seperately fed into the inflated Stable Diffusion backbone and ControlNet, which are modified with a sequence of attentions to achieve the temporal consistency of video editing,
-      while the latter taking an additional input of depth maps.
-      Additionally, the target groundings are directed to the <strong>Cross-Frame Gated Attentions</strong>, 
-      while the target prompt conditioning and frame-independently optimized null-embeddings are channeled into the <strong>Modulated Cross Attentions</strong>.
-      Finally, if a binary mask, the intersection of common outer spaces of target bounding boxes, exists, it is utilized for inpainting before each denoising step.
-      Usage of this optional binary mask helps preserve regions that are not the target of editing.
-      </h3>
-    </div>
-  </div>
-</section> -->
-<!-- End Paper overview -->
-
-
-
 <!-- Comparison with other methods  -->
-<!-- <br>
+<br>
 <br>
 <div id="results" style='background-color: rgb(243, 242, 242)'>
   <br>
-  <h2 class="tldr" style="font-size: 28px;">Comparison with state-of-the-art approaches</h2>
+  <h2 class="tldr" style="font-size: 28px;">Learning Multiple Motion Concepts &#8680; Comparison with state-of-the-art methods</h2>
   <div>
-    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-      "A cat is roaring." 	&#8680; "A <u style="font-weight: bold;">dog</u> is roaring <u style="font-weight: bold;">on the beach</u>, <u style="font-weight: bold;">under the sky</u>."
+    <span style="display: inline-block; width: 100%; text-align: center; color:black; font-family: 'Segoe Print', sans-serif; font-size: 18px;">
+      "A horse runs on the grass."
     </span>
     <br>
-      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-          <tbody>
+      <table align="center" style="width: 75%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody align="center" valign="center">
             <tr>
+              <th align="center" valign="center">
+                <div> 
+                  <br>
+                  <br>
+                  Exposed video data: <b> &gt; 10 Million</b>
+                </div>
+              </th>
               <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/cat_flower/dog_beach_sky/input.mp4">
+                  <video autoplay="" muted="" loop="" width="230">
+                      <source src="static/multiple_motion/Gen2/vid_1.mp4">
                   </video>
                   <div>
-                      Input Video
+                      Gen-2
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/cat_flower/dog_beach_sky/Tune-A-Video-Control/vid.mp4">
+                      <source src="static/multiple_motion/I2VGen/vid_1.mp4">
                   </video>
                   <div>
-                      Tune A Video w/ ControlNet
+                      I2VGen-XL
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/cat_flower/dog_beach_sky/Control-A-Video/vid.mp4">
+                      <source src="static/multiple_motion/TI2V-Zero/vid_1.mp4">
                   </video>
                   <div>
-                      Control A Video
+                      TI2V-Zero
                   </div>
               </th>
             </tr>
             <tr>
                 <th>
+                  <div> 
+                    <br>
+                    <br>
+                    Exposed video data: <b> &lt; 100 </b> 
+                  </div>
+                </th>
+                <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/cat_flower/dog_beach_sky/ControlVideo/vid.mp4">
+                        <source src="static/multiple_motion/Tune-A-Video/vid_1.mp4">
                     </video>
                     <div>
-                        ControlVideo
+                        Tune-A-Video
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/cat_flower/dog_beach_sky/Gen-1/vid.mp4">
+                        <source src="static/multiple_motion/LAMP/vid_1.mp4">
                     </video>
                     <div>
-                        Gen-1
+                        LAMP
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/cat_flower/dog_beach_sky/Ours/vid.mp4">
+                        <source src="static/multiple_motion/MotionPrior/vid_1.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
-                        Ground A Video (ours)
+                        MotionPrior (ours)
                     </div>
                 </th>
             </tr>
@@ -247,61 +210,75 @@
       </table>
     <br><br>
 
-    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-      "A squirrel eating a carrot." 	&#8680; "A <u style="font-weight: bold;">fennec fox</u> eating a <u style="font-weight: bold;">sausage</u> <u style="font-weight: bold;">on the dune</u>, <u style="font-weight: bold;">in desert</u>."
+    <span style="display: inline-block; width: 100%; text-align: center; color:black; font-family: 'Segoe Print', sans-serif; font-size: 18px;">
+      "Fireworks over the mountains."
     </span>
     <br>
-      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-          <tbody>
+      <table align="center" style="width: 75%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody align="center" valign="center">
             <tr>
+              <th align="center" valign="center">
+                <div>
+                  <br>
+                  <br>
+                  Exposed video data: <b> &gt; 10 Million</b>
+                </div>
+              </th>
               <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/input.mp4">
+                  <video autoplay="" muted="" loop="" width="230">
+                      <source src="static/multiple_motion/Gen2/vid_2.mp4">
                   </video>
                   <div>
-                      Input Video
+                      Gen-2
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Tune-A-Video-Control/vid.mp4">
+                      <source src="static/multiple_motion/I2VGen/vid_2.mp4">
                   </video>
                   <div>
-                      Tune A Video w/ ControlNet
+                      I2VGen-XL
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Control-A-Video/vid.mp4">
+                      <source src="static/multiple_motion/TI2V-Zero/vid_2.mp4">
                   </video>
                   <div>
-                      Control A Video
+                      TI2V-Zero
                   </div>
               </th>
             </tr>
             <tr>
                 <th>
+                  <div> 
+                    <br>
+                    <br>
+                    Exposed video data: <b> &lt; 100 </b> 
+                  </div>
+                </th>
+                <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/ControlVideo/vid.mp4">
+                        <source src="static/multiple_motion/Tune-A-Video/vid_2.mp4">
                     </video>
                     <div>
-                        ControlVideo
+                        Tune-A-Video
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Gen-1/vid.mp4">
+                        <source src="static/multiple_motion/LAMP/vid_2.mp4">
                     </video>
                     <div>
-                        Gen-1
+                        LAMP
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/squirrel_carrot/fox_sausage_dune_desert/Ours/vid.mp4">
+                        <source src="static/multiple_motion/MotionPrior/vid_2.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
-                        Ground A Video (ours)
+                        MotionPrior (ours)
                     </div>
                 </th>
             </tr>
@@ -309,452 +286,202 @@
       </table>
     <br><br>
     
-    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-      "Brown bear walking on the rock, against a wall." 	&#8680; "<u style="font-weight: bold;">Pink bear</u> walking on <u style="font-weight: bold;">snowy alpine</u>, <u style="font-weight: bold;">next to lake</u>, against a <u style="font-weight: bold;">blue wall</u>."
+    <span style="display: inline-block; width: 100%; text-align: center; color:black; font-family: 'Segoe Print', sans-serif; font-size: 18px;">
+      "Birds fly over the city."
     </span>
     <br>
-      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-          <tbody>
+      <table align="center" style="width: 75%;margin-left:auto;margin-right:auto; text-align: center;">
+          <tbody align="center" valign="center">
             <tr>
+              <th align="center" valign="center">
+                <div>
+                  <br>
+                  <br>
+                  Exposed video data: <b> &gt; 10 Million</b>
+                </div>
+              </th>
               <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/bear/pink_alpine_lake_blue/input.mp4">
+                  <video autoplay="" muted="" loop="" width="230">
+                      <source src="static/multiple_motion/Gen2/vid_3.mp4">
                   </video>
                   <div>
-                      Input Video
+                      Gen-2
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/bear/pink_alpine_lake_blue/Tune-A-Video-Control/vid.mp4">
+                      <source src="static/multiple_motion/I2VGen/vid_3.mp4">
                   </video>
                   <div>
-                      Tune A Video w/ ControlNet
+                      I2VGen-XL
                   </div>
               </th>
               <th>
                   <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/bear/pink_alpine_lake_blue/Control-A-Video/vid.mp4">
+                      <source src="static/multiple_motion/TI2V-Zero/vid_3.mp4">
                   </video>
                   <div>
-                      Control A Video
+                      TI2V-Zero
                   </div>
               </th>
             </tr>
             <tr>
                 <th>
+                  <div> 
+                    <br>
+                    <br> 
+                    Exposed video data: <b> &lt; 100 </b> 
+                  </div>
+                </th>
+                <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/bear/pink_alpine_lake_blue/ControlVideo/vid.mp4">
+                        <source src="static/multiple_motion/Tune-A-Video/vid_3.mp4">
                     </video>
                     <div>
-                        ControlVideo
+                        Tune-A-Video
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/bear/pink_alpine_lake_blue/Gen-1/vid.mp4">
+                        <source src="static/multiple_motion/LAMP/vid_3.mp4">
                     </video>
                     <div>
-                        Gen-1
+                        LAMP
                     </div>
                 </th>
                 <th>
                     <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/bear/pink_alpine_lake_blue/Ours/vid.mp4">
+                        <source src="static/multiple_motion/MotionPrior/vid_3.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
-                        Ground A Video (ours)
+                        MotionPrior (ours)
                     </div>
                 </th>
             </tr>
         </tbody>
       </table>
-    <br><br>
-
-    <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-      "A silver jeep is driving down a curvy road in the countryside." 	&#8680; "An <u style="font-weight: bold;">orange jeep</u> is driving down a curvy road in the countryside, <u style="font-weight: bold;">fireworks on the sky</u>."
-    </span>
-    <br>
-      <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-          <tbody>
-            <tr>
-              <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/car_turn/input.mp4">
-                  </video>
-                  <div>
-                      Input Video
-                  </div>
-              </th>
-              <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/car_turn/Tune-A-Video-Control/vid.mp4">
-                  </video>
-                  <div>
-                      Tune A Video w/ ControlNet
-                  </div>
-              </th>
-              <th>
-                  <video autoplay="" muted="" loop="" width="200">
-                      <source src="static/comparisons/car_turn/Control-A-Video/vid.mp4">
-                  </video>
-                  <div>
-                      Control A Video
-                  </div>
-              </th>
-            </tr>
-            <tr>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/car_turn/Controlvideo/vid.mp4">
-                    </video>
-                    <div>
-                        ControlVideo
-                    </div>
-                </th>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/car_turn/Gen-1/vid.mp4">
-                    </video>
-                    <div>
-                        Gen-1
-                    </div>
-                </th>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/comparisons/car_turn/Ours/vid.mp4">
-                    </video>
-                    <div class="tldr highlight" style="font-size: 16px;">
-                        Ground A Video (ours)
-                    </div>
-                </th>
-            </tr>
-        </tbody>
-      </table>
-      <br><br>
-    
-      <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-        "A bird flying above lake in the forest." 	&#8680; "A <u style="font-weight: bold;">crow</u> flying above <u style="font-weight: bold;">desert</u> in the <u style="font-weight: bold;">forest on fire</u>."
-      </span>
-      <br>
-        <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-            <tbody>
-              <tr>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/more-comparisons/bird_forest/input.mp4">
-                    </video>
-                    <div>
-                        Input Video
-                    </div>
-                </th>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/more-comparisons/bird_forest/Tune-A-Video-Control/vid.mp4">
-                    </video>
-                    <div>
-                        Tune A Video w/ ControlNet
-                    </div>
-                </th>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/more-comparisons/bird_forest/Control-A-Video/vid.mp4">
-                    </video>
-                    <div>
-                        Control A Video
-                    </div>
-                </th>
-                <th>
-                    <video autoplay="" muted="" loop="" width="200">
-                        <source src="static/more-comparisons/bird_forest/Ours/vid.mp4">
-                    </video>
-                    <div class="tldr highlight" style="font-size: 16px;">
-                        Ground A Video (ours)
-                    </div>
-                </th>
-              </tr>
-          </tbody>
-        </table>
-        <br><br>
-
-        <span style="display: inline-block; width: 95%; text-align: center; color:black; font-family: 'Comic Mono', sans-serif; font-size: 18px;">
-          "A man is walking a dog on the road." 	&#8680; "<u style="font-weight: bold;">Iron Man</u> is walking a <u style="font-weight: bold;">sheep</u> on the <u style="font-weight: bold;">lake</u>."
-        </span>
-        <br>
-          <table style="width: 45%;margin-left:auto;margin-right:auto; text-align: center;">
-              <tbody>
-                <tr>
-                  <th>
-                      <video autoplay="" muted="" loop="" width="200">
-                          <source src="static/more-comparisons/dog_walking/input.mp4">
-                      </video>
-                      <div>
-                          Input Video
-                      </div>
-                  </th>
-                  <th>
-                      <video autoplay="" muted="" loop="" width="200">
-                          <source src="static/more-comparisons/dog_walking/Gen-1/vid.mp4">
-                      </video>
-                      <div>
-                          Gen-1
-                      </div>
-                  </th>
-                  <th>
-                      <video autoplay="" muted="" loop="" width="200">
-                          <source src="static/more-comparisons/dog_walking/Control-A-Video/vid.mp4">
-                      </video>
-                      <div>
-                          Control A Video
-                      </div>
-                  </th>
-                  <th>
-                      <video autoplay="" muted="" loop="" width="200">
-                          <source src="static/more-comparisons/dog_walking/Ours/vid.mp4">
-                      </video>
-                      <div class="tldr highlight" style="font-size: 16px;">
-                          Ground A Video (ours)
-                      </div>
-                  </th>
-                </tr>
-            </tbody>
-          </table>
   </div>
 <br>
 <br>
-</div>  -->
+</div>
 <!-- End Comparison with other methods  -->
 
 
 
 
-<!-- <div id="results" style='background-color: rgb(255, 255, 255)'>
+<div id="results" style='background-color: rgb(243, 242, 242)'>
   <br>
-  <h2 class="tldr" style="font-size: 28px;">Video Style Transfer</h2>
+  <h2 class="tldr" style="font-size: 28px;">Learning Multiple Motion Concepts &#8680; Generating Composite Motions</h2>
   <div>
-    <table style="width: 75%;margin-left:auto;margin-right:auto; text-align: center;">
+    <table style="width: 80%;margin-left:auto;margin-right:auto; text-align: center;">
       <tbody>
         <tr>
           <th>
-            <img src="static/gifs/bird_forest/input.gif" width="180">
-
-              <div>
-                Input Video
-              </div>
-          </th>
-          <th>
-              <img src="static/style_transfer/bird_forest/ukiyoe.gif" width="180">
-
               <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  + Ukiyo-e art
+                "A beautiful girl plays the guitar <br>
+                under fireworks in the sky."
               </div>
+            <img src="static/composite_motion/a_beautiful_girl_plays_the_guitar_under_fireworks_in_the_sky.gif" width="200">
           </th>
           <th>
-            <img src="static/style_transfer/rabbit/input.gif" width="180">
-
-            <div>
-              Input Video
+              <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                  "A helicopter and many birds <br> 
+                  fly over the sea."
+              </div>
+              <img src="static/composite_motion/a_helicopter_and_many_birds_fly_over_the_sea.gif" width="200">
+          </th>
+          <th>
+            <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+              "A horse is running <br>
+              in the rain."        
             </div>
+            <img src="static/composite_motion/a_horse_running_in_the_rain.gif" width="200">
           </th>
           <th>
-            <img src="static/style_transfer/rabbit/monet.gif" width="180">
-
-              <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                +Monet style
+            <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                "A Pikachu plays the guitar in the<br>
+                garden besides a waterfall."
             </div>
-          </th>
-          <th>
-            <img src="static/gifs/surfing/input.gif" width="180">
-
-              <div>
-                Input Video
-              </div>
-          </th>
-          <th>
-              <img src="static/style_transfer/surfing/cezanne.gif" width="180">
-
-              <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  + Cezanne style
-              </div>
-          </th>
-          <th>
-            <img src="static/gifs/skiing/input.gif" width="180">
-
-              <div>
-                Input Video
-              </div>
-          </th>
-          <th>
-              <img src="static/style_transfer/skiing/vangogh.gif" width="180">
-
-              <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  + Starry night style
-              </div>
+            <img src="static/composite_motion/a_Pikachu_plays_a_guitar_in_the_garden_besides_a_waterfall.gif" width="200">
           </th>
         </tr>
     </tbody>
   </table>
   <br>
-  <h2 class="tldr" style="font-size: 28px;">Video Style Transfer with Attributes Change</h2>
-    <table style="width: 70%;margin-left:auto;margin-right:auto; text-align: center;">
+
+  <h2 class="tldr" style="font-size: 28px;">Learning Single Motion Concept &#8680; Few-Shot</h2>
+    <table style="width: 80%;margin-left:auto;margin-right:auto; text-align: center;">
         <tbody>
           <tr>
             <th>
-              <img src="static/gifs/dog_walking/input.gif" width="250">
+                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                  "A branch in rain."
+                </div>
+              <img src="static/single_motion/a_branch_in_rain.gif" width="200">
+            </th>
+            <th>
+                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                   "A woman plays the guitar"
+                </div>
+                <img src="static/single_motion/a_woman_plays_the_guitar.gif" width="200">
+            </th>
+            <th>
+                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                "Apache flies in sky."
+                </div>
+              <img src="static/single_motion/Apache_flies_in_sky.gif" width="200">
+            </th>
+            <th>
+                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
+                "Waterfall and a Ferrari."
+              </div>
+              <img src="static/single_motion/waterfall_and_a_Ferrari.gif" width="200">
+            </th>
+          </tr>
+      </tbody>
+    </table>
 
+    <h2 class="tldr" style="font-size: 28px;">Learning Single Motion Concept &#8680; One-Shot</h2>
+    <table style="width: 80%;margin-left:auto;margin-right:auto; text-align: center;">
+        <tbody>
+          <tr>
+            <th>
                 <div>
+                  <br>
                   Input Video
                 </div>
+              <img src="static/edit/car.gif" width="180">
             </th>
             <th>
-                <img src="static/style_transfer/dog_walking/chinese.gif" width="250">
-
                 <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                    + Chinese painting style
+                  "A jeep car is moving <br>
+                  on the snow."
                 </div>
+                <img src="static/edit/a_jeep_car_is_moving_on_the_snow.gif" width="180">
             </th>
             <th>
-              <img src="static/style_transfer/dog_walking/vangogh.gif" width="250">
-
-                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  + Van Gogh starry night style
-                </div>
-            </th>
-            <th>
-              <img src="static/style_transfer/dog_walking/tiger.gif" width="250">
-
-                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  + Van Gogh starry night style<br>
-                  dog, man &rarr; tiger, Superman
-              </div>
-            </th>
-            <th>
-              <img src="static/style_transfer/dog_walking/cheetah.gif" width="250">
-
-              <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                + Van Gogh starry night style<br>
-                dog, man &rarr; cheetah, Superman
-            </div>
-          </th>
-          </tr>
-      </tbody>
-    </table>
-
-    <h2 class="tldr" style="font-size: 28px;">Text-to-Video Generation with Pose Control</h2>
-    <table style="width: 55%;margin-left:auto;margin-right:auto; text-align: center;">
-        <tbody>
-          <tr>
-            <th>
-              <img src="static/t2v-pose/stormtrooper_pose.gif" width="170">
-
                 <div>
-                  Input Pose
+                    <br>
+                    Input Video
                 </div>
+                <img src="static/edit/run.gif" width="280">
             </th>
             <th>
-              <img src="static/t2v-pose/mars.jpg" width="170">
-
-                <div>
-                  Input Background
-                </div>
-            </th>
-            <th>
-                <img src="static/t2v-pose/stormtrooper_mars.gif" width="170" style="margin-right: 20px;">
-
                 <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                    Stormtrooper is<br>
-                    dancing on Mars.
+                  "A girl runs beside a river,<br>
+                   Van Gogh style."
                 </div>
+              <img src="static/edit/a_girl_runs_beside_a_river,_Van_Gogh_style.gif" width="280">
             </th>
-            <th>
-              <img src="static/t2v-pose/ironman_pose.gif" width="170">
-
-                <div>
-                  Input Pose
-                </div>
-            </th>
-            <th>
-            <th>
-              <img src="static/t2v-pose/sand.jpg" width="170">
-
-                <div>
-                  Input Background
-                </div>
-            </th>
-            <th>
-              <img src="static/t2v-pose/ironman_sand.gif" width="170">
-
-                <div style="font-family: 'Segoe Print', sans-serif; font-weight: bold;">
-                  Iron man is<br>
-                  dancing on the sand.
-              </div>
-            </th>
+            
           </tr>
       </tbody>
     </table>
   </div>
 <br>
 <br>
-</div> -->
+</div>
 
-
-
-<!-- Video carousel -->
-<!-- <section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
-<!-- End video carousel -->
-
-
-
-<!-- Paper poster 
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-End paper poster -->
-
-
-<!--BibTex citation -->
-<!--  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre style="border-radius: 20px;"><code>
-        @article{jeong2023ground,
-          title={Ground-A-Video: Zero-shot Grounded Video Editing using Text-to-image Diffusion Models},
-          author={Jeong, Hyeonho and Ye, Jong Chul},
-          journal={arXiv preprint arXiv:2310.01107},
-          year={2023}
-        }
-      </code></pre>
-    </div>
-  </section> -->
-<!--End BibTex citation -->
 
 
   <footer class="footer">
@@ -776,11 +503,6 @@ End paper poster -->
   </div>
 </footer>
 
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
 
   </body>
 
