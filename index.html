@@ -37,6 +37,9 @@
   href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+  <!-- <link rel="apple-touch-icon" sizes="180x180" href="static/favicon_io/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon_io/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon_io/favicon-16x16.png"> -->
   <link rel="manifest" href="/site.webmanifest">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -66,10 +69,10 @@
             <h1 class="xtitle is-1 publication-title" style="font-size: 42px;">MotionPrior: Exploring Efficient Learning of Motion Concepts for Few-shot Video Generation</h1><br>
             <div class="is-size-5 publication-authors">
               <span class="author-block" style="font-size: 18px;">
-                <a href="https://youncy-hu.github.io/" target="_blank">Yaosi Hu</a>
+                <a href="https://youncy-hu.github.io/" target="_blank">Yaosi Hu, and</a>
               </span>
               <span class="author-block" style="font-size: 18px;">
-                <a href="https://chenlab.comp.polyu.edu.hk/Members/personal_page/changwenchen/changwenchen.html" target="_blank">Changwen Chen</a>
+                <a href="https://chenlab.comp.polyu.edu.hk/Members/personal_page/changwenchen/changwenchen.html" target="_blank">Chang Wen Chen</a>
               </span>
             </div>
             <div class="is-size-5 publication-authors">
@@ -81,15 +84,34 @@
             <div class="column has-text-centered">
               <div class="publication-links">
 
+                <!-- <span class="link-block">
+                  <a href="https://arxiv.org/abs/2310.01107" target="_blank"class="external-link ">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>ArXiv</span>
+                  </a>
+                </span> -->
+
+                <!-- Supplementary PDF link -->
+                <!-- <span class="link-block">
+                  <a href="static/pdfs/supplementary_material.pdf" target="_blank" class="external-link ">
+                    <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                    </span>
+                    <span>Supplementary</span>
+                  </a>
+                </span> -->
+
                 <!-- Github link -->
-                <span class="link-block">
+                <!-- <span class="link-block">
                   <a href="https://youncy-hu.github.io/motionprior/" target="_blank" class="external-link ">
                     <span class="icon">
                       <i class="fab fa-github"></i>
                     </span>
                     <span>Code (Cooming soon)</span>
                   </a>
-                </span>
+                </span> -->
 
               </div>
             </div>
@@ -127,6 +149,35 @@
 </section>
 <!-- End paper abstract -->
 
+<!-- Paper overview -->
+<!--<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body has-text-justified">
+      <br>
+      <br>
+      <h2 class="title is-3">Method</h2>
+      <br>
+      <img class="center-img center" src="static/images/overview.png" width="100%">
+      <br>
+      <h3 class="subtitle" style="font-size: 18px;">
+      Given a series of input video frames, we automatically obtain <strong>video groundings</strong> via GLIP. 
+      Subsequently, the groundings and the source prompt are manually refined to form target groundings and target prompot, 
+      commonly following our <strong>&#916;&#964;</strong> (a list of semantic edits).
+      On the other branch, the input frames undergo individual DDIM inversion and null optimizations, followed by our proposed <strong>Optical flow smoothing</strong> to form latent features.
+      The latents are seperately fed into the inflated Stable Diffusion backbone and ControlNet, which are modified with a sequence of attentions to achieve the temporal consistency of video editing,
+      while the latter taking an additional input of depth maps.
+      Additionally, the target groundings are directed to the <strong>Cross-Frame Gated Attentions</strong>, 
+      while the target prompt conditioning and frame-independently optimized null-embeddings are channeled into the <strong>Modulated Cross Attentions</strong>.
+      Finally, if a binary mask, the intersection of common outer spaces of target bounding boxes, exists, it is utilized for inpainting before each denoising step.
+      Usage of this optional binary mask helps preserve regions that are not the target of editing.
+      </h3>
+    </div>
+  </div>
+</section> -->
+<!-- End Paper overview -->
+
+
+
 <!-- Comparison with other methods  -->
 <br>
 <br>
@@ -144,8 +195,9 @@
               <th align="center" valign="center">
                 <div> 
                   <br>
+                  Exposed video data: <b> &gt; 10 Million</b> 
                   <br>
-                  Exposed video data: <b> &gt; 10 Million</b>
+                  (Pretraining or Finetuning)
                 </div>
               </th>
               <th>
@@ -154,6 +206,22 @@
                   </video>
                   <div>
                       Gen-2
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/multiple_motion/MotionDirector/vid_1.mp4">
+                  </video>
+                  <div>
+                      MotionDirector
+                  </div>
+              </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/multiple_motion/AnimatedDiff/vid_1.mp4">
+                  </video>
+                  <div>
+                      AnimatedDiff
                   </div>
               </th>
               <th>
@@ -174,6 +242,12 @@
               </th>
             </tr>
             <tr>
+                <th>
+                  <div> 
+                    <br>
+                    <br> 
+                  </div>
+                </th>
                 <th>
                   <div> 
                     <br>
@@ -220,8 +294,9 @@
               <th align="center" valign="center">
                 <div>
                   <br>
-                  <br>
                   Exposed video data: <b> &gt; 10 Million</b>
+                  <br>
+                  (Pretraining or Finetuning)
                 </div>
               </th>
               <th>
@@ -230,6 +305,22 @@
                   </video>
                   <div>
                       Gen-2
+                  </div>
+              </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/multiple_motion/MotionDirector/vid_2.mp4">
+                    </video>
+                    <div>
+                        MotionDirector
+                    </div>
+                </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/multiple_motion/AnimatedDiff/vid_2.mp4">
+                  </video>
+                  <div>
+                      AnimatedDiff
                   </div>
               </th>
               <th>
@@ -250,6 +341,12 @@
               </th>
             </tr>
             <tr>
+                <th>
+                  <div> 
+                    <br>
+                    <br> 
+                  </div>
+                </th>
                 <th>
                   <div> 
                     <br>
@@ -296,8 +393,9 @@
               <th align="center" valign="center">
                 <div>
                   <br>
-                  <br>
                   Exposed video data: <b> &gt; 10 Million</b>
+                  <br>
+                  (Pretraining or Finetuning)
                 </div>
               </th>
               <th>
@@ -306,6 +404,22 @@
                   </video>
                   <div>
                       Gen-2
+                  </div>
+              </th>
+                <th>
+                    <video autoplay="" muted="" loop="" width="200">
+                        <source src="static/multiple_motion/MotionDirector/vid_3.mp4">
+                    </video>
+                    <div>
+                        MotionDirector
+                    </div>
+                </th>
+              <th>
+                  <video autoplay="" muted="" loop="" width="200">
+                      <source src="static/multiple_motion/AnimatedDiff/vid_3.mp4">
+                  </video>
+                  <div>
+                      AnimatedDiff
                   </div>
               </th>
               <th>
@@ -326,6 +440,12 @@
               </th>
             </tr>
             <tr>
+                <th>
+                  <div> 
+                    <br>
+                    <br> 
+                  </div>
+                </th>
                 <th>
                   <div> 
                     <br>
@@ -441,7 +561,7 @@
       </tbody>
     </table>
 
-    <h2 class="tldr" style="font-size: 28px;">Learning Single Motion Concept &#8680; One-Shot</h2>
+    <h2 class="tldr" style="font-size: 28px;">Learning Single Motion Pattern &#8680; One-Shot</h2>
     <table style="width: 80%;margin-left:auto;margin-right:auto; text-align: center;">
         <tbody>
           <tr>
@@ -484,6 +604,64 @@
 
 
 
+<!-- Video carousel -->
+<!-- <section class="hero is-small">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3">Another Carousel</h2>
+      <div id="results-carousel" class="carousel results-carousel">
+        <div class="item item-video1">
+          <video poster="" id="video1" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+        <div class="item item-video2">
+          <video poster="" id="video2" autoplay controls muted loop height="100%">
+            <source src="static/videos/carousel1.mp4"
+            type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> -->
+<!-- End video carousel -->
+
+
+
+<!-- Paper poster 
+<section class="hero is-small is-light">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title">Poster</h2>
+
+      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
+          </iframe>
+        
+      </div>
+    </div>
+  </section>
+End paper poster -->
+
+
+<!--BibTex citation -->
+<!--  <section class="section" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre style="border-radius: 20px;"><code>
+        @article{jeong2023ground,
+          title={Ground-A-Video: Zero-shot Grounded Video Editing using Text-to-image Diffusion Models},
+          author={Jeong, Hyeonho and Ye, Jong Chul},
+          journal={arXiv preprint arXiv:2310.01107},
+          year={2023}
+        }
+      </code></pre>
+    </div>
+  </section> -->
+<!--End BibTex citation -->
+
+
   <footer class="footer">
   <div class="container">
     <div class="columns is-centered">
@@ -503,6 +681,15 @@
   </div>
 </footer>
 
+<!-- Statcounter tracking code -->
+  
+<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
+
+    <!-- End of Statcounter Code -->
+  <!-- <div style="background-color: white; margin-right: auto; margin-left: auto; text-align: center; padding-top: 35px; padding-bottom: 35px; position: absolute; left: 0; right: 0;">
+    <a href="https://www.freecounterstat.com" title="page view counter"><img style="position: relative; margin: auto; left: 0; right: 0;" src="https://counter6.optistats.ovh/private/freecounterstat.php?c=1thh4qucalbdnq4a3txmcutn1emlfswl" border="0" title="page view counter" alt="page view counter"></a>
+    <p>Visitor Count</p>
+  </div> -->
 
   </body>
 
