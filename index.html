@@ -57,6 +57,80 @@
 	});
     </script>
   <script src="static/js/index.js"></script>
+  <style>
+      * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          margin: 20px 0;
+      }
+      
+      
+      /* 内部矩形区域的单元格样式 */
+      .rect-top {
+          border-top: 3px solid #e74c3c !important;
+      }
+      
+      .rect-bottom {
+          border-bottom: 3px solid #e74c3c !important;
+      }
+      
+      .rect-left {
+          border-left: 3px solid #e74c3c !important;
+      }
+      
+      .rect-right {
+          border-right: 3px solid #e74c3c !important;
+      }
+      
+      
+      /* 标记角部 */
+      .rect-top.rect-left::before, 
+      .rect-top.rect-right::before,
+      .rect-bottom.rect-left::before,
+      .rect-bottom.rect-right::before {
+          content: "";
+          position: absolute;
+          width: 10px;
+          height: 10px;
+          background: #e74c3c;
+      }
+      
+      .rect-top.rect-left::before {
+          top: -3px;
+          left: -3px;
+      }
+      
+      .rect-top.rect-right::before {
+          top: -3px;
+          right: -3px;
+      }
+      
+      .rect-bottom.rect-left::before {
+          bottom: -3px;
+          left: -3px;
+      }
+      
+      .rect-bottom.rect-right::before {
+          bottom: -3px;
+          right: -3px;
+      }
+      
+      .highlight-area {
+          background-color: rgba(231, 76, 60, 0.1);
+          padding: 15px;
+          border-radius: 5px;
+          margin: 20px 0;
+          border-left: 4px solid #e74c3c;
+      }
+  </style>
+
 </head>
 <body>
 
@@ -216,7 +290,7 @@
                       MotionDirector
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-left rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/AnimatedDiff/vid_1.mp4">
                   </video>
@@ -224,7 +298,7 @@
                       AnimatedDiff
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/I2VGen/vid_1.mp4">
                   </video>
@@ -232,7 +306,7 @@
                       I2VGen-XL
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-right rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/TI2V-Zero/vid_1.mp4">
                   </video>
@@ -263,7 +337,7 @@
                         Tune-A-Video
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-left rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/LAMP/vid_1.mp4">
                     </video>
@@ -271,12 +345,18 @@
                         LAMP
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/MotionPrior/vid_1.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
                         MotionPrior (ours)
+                    </div>
+                </th>
+                <th class="rect-bottom rect-right rect-cell">
+                    <img src="static/multiple_motion/img_1.png" width="200">
+                    <div>
+                        <span style="color: red;">Given the first frame</span>
                     </div>
                 </th>
             </tr>
@@ -315,7 +395,7 @@
                         MotionDirector
                     </div>
                 </th>
-              <th>
+              <th class="rect-top rect-left rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/AnimatedDiff/vid_2.mp4">
                   </video>
@@ -323,7 +403,7 @@
                       AnimatedDiff
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/I2VGen/vid_2.mp4">
                   </video>
@@ -331,7 +411,7 @@
                       I2VGen-XL
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-right rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/TI2V-Zero/vid_2.mp4">
                   </video>
@@ -362,7 +442,7 @@
                         Tune-A-Video
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-left rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/LAMP/vid_2.mp4">
                     </video>
@@ -370,12 +450,18 @@
                         LAMP
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/MotionPrior/vid_2.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
                         MotionPrior (ours)
+                    </div>
+                </th>
+                <th class="rect-bottom rect-right rect-cell">
+                    <img src="static/multiple_motion/img_2.png" width="200">
+                    <div>
+                        <span style="color: red;">Given the first frame</span>
                     </div>
                 </th>
             </tr>
@@ -414,7 +500,7 @@
                         MotionDirector
                     </div>
                 </th>
-              <th>
+              <th class="rect-top rect-left rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/AnimatedDiff/vid_3.mp4">
                   </video>
@@ -422,7 +508,7 @@
                       AnimatedDiff
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/I2VGen/vid_3.mp4">
                   </video>
@@ -430,7 +516,7 @@
                       I2VGen-XL
                   </div>
               </th>
-              <th>
+              <th class="rect-top rect-right rect-cell">
                   <video autoplay="" muted="" loop="" width="200">
                       <source src="static/multiple_motion/TI2V-Zero/vid_3.mp4">
                   </video>
@@ -449,7 +535,7 @@
                 <th>
                   <div> 
                     <br>
-                    <br> 
+                    <br>
                     Exposed video data: <b> &lt; 100 </b> 
                   </div>
                 </th>
@@ -461,7 +547,7 @@
                         Tune-A-Video
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-left rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/LAMP/vid_3.mp4">
                     </video>
@@ -469,12 +555,18 @@
                         LAMP
                     </div>
                 </th>
-                <th>
+                <th class="rect-bottom rect-cell">
                     <video autoplay="" muted="" loop="" width="200">
                         <source src="static/multiple_motion/MotionPrior/vid_3.mp4">
                     </video>
                     <div class="tldr highlight" style="font-size: 16px;">
                         MotionPrior (ours)
+                    </div>
+                </th>
+                <th class="rect-bottom rect-right rect-cell">
+                    <img src="static/multiple_motion/img_3.png" width="200">
+                    <div>
+                        <span style="color: red;">Given the first frame</span>
                     </div>
                 </th>
             </tr>
